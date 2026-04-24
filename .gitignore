@@ -25,6 +25,16 @@ __pycache__/
 venv/
 *.egg-info/
 
+# Stray TS-emit artifacts (`bunx tsc` w/o --noEmit produces these — Bun runs .ts directly)
+src/*.js
+src/*.d.ts
+tests/*.js
+tests/*.d.ts
+examples/*.js
+examples/*.d.ts
+conformance/*.js
+conformance/*.d.ts
+
 # Logs / tmp
 *.log
 tmp/
