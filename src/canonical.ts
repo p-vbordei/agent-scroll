@@ -1,6 +1,6 @@
-import canonicalize from "canonicalize";
 import { sha256 } from "@noble/hashes/sha256";
 import { bytesToHex } from "@noble/hashes/utils";
+import canonicalize from "canonicalize";
 
 export function canonical(value: unknown): Uint8Array {
   const s = canonicalize(value);
@@ -9,5 +9,5 @@ export function canonical(value: unknown): Uint8Array {
 }
 
 export function hashCanonical(value: unknown): string {
-  return "sha256:" + bytesToHex(sha256(canonical(value)));
+  return `sha256:${bytesToHex(sha256(canonical(value)))}`;
 }

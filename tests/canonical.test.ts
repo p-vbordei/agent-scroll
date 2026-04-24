@@ -1,4 +1,4 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import { canonical, hashCanonical } from "../src/canonical";
 
 test("canonical is byte-identical regardless of key order", () => {

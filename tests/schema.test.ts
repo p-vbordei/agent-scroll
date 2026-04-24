@@ -1,5 +1,5 @@
-import { test, expect } from "bun:test";
-import { Turn, SealedTurn } from "../src/schema";
+import { expect, test } from "bun:test";
+import { SealedTurn, Turn } from "../src/schema";
 
 const validTurn = {
   version: "scroll/0.1",
@@ -28,7 +28,7 @@ test("SealedTurn requires a hash field", () => {
   expect(
     SealedTurn.safeParse({
       ...validTurn,
-      hash: "sha256:" + "0".repeat(64),
+      hash: `sha256:${"0".repeat(64)}`,
     }).success,
   ).toBe(true);
 });

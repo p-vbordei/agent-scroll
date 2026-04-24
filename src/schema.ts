@@ -67,6 +67,4 @@ export type VerifyFailure =
   | { turn: number; reason: "BadSignature" }
   | { turn: number; reason: "SchemaViolation"; detail: string };
 
-export type VerifyResult =
-  | { ok: true }
-  | { ok: false; failures: VerifyFailure[] };
+export type VerifyResult = { ok: true } | { ok: false; failures: VerifyFailure[] };
