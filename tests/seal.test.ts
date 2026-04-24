@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 import { hashCanonical } from "../src/canonical";
 import type { Turn } from "../src/schema";
-import { seal } from "../src/seal";
+import { seal, sealChain } from "../src/seal";
 
 const turn: Turn = {
   version: "scroll/0.1",
@@ -26,4 +26,22 @@ test("seal() is deterministic — same turn yields same hash", async () => {
   const a = await seal(turn);
   const b = await seal(turn);
   expect(a.hash).toBe(b.hash);
+});
+
+test("sealChain() links each turn's prev_hash to the previous hash", async () => {
+  const t0: Turn = { ...turn, turn: 0 };
+  const t1: Turn = { ...turn, turn: 1, messages: [{ role: "assistant", content: "hello" }] };
+  const t2: Turn = { ...turn, turn: 2, messages: [{ role: "user", content: "thanks" }] };
+
+  const chain = await sealChain([t0, t1, t2]);
+  expect(chain).toHaveLength(3);
+  expect(chain[0]?.prev_hash).toBeUndefined();
+  expect(chain[1]?.prev_hash).toBe(chain[0]?.hash);
+  expect(chain[2]?.prev_hash).toBe(chain[1]?.hash);
+});
+
+test("sealChain() preserves any prev_hash the caller already set on turn 0", async () => {
+  const seeded: Turn = { ...turn, turn: 0, prev_hash: `sha256:${"f".repeat(64)}` };
+  const [first] = await sealChain([seeded]);
+  expect(first?.prev_hash).toBe(`sha256:${"f".repeat(64)}`);
 });
