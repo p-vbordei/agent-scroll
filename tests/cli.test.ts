@@ -1,8 +1,11 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 
 const cli = "src/cli.ts";
 
-async function run(args: string[], stdin?: string): Promise<{ stdout: string; stderr: string; code: number }> {
+async function run(
+  args: string[],
+  stdin?: string,
+): Promise<{ stdout: string; stderr: string; code: number }> {
   const proc = Bun.spawn(["bun", "run", cli, ...args], {
     stdin: stdin !== undefined ? new TextEncoder().encode(stdin) : undefined,
     stdout: "pipe",

@@ -1,9 +1,9 @@
 #!/usr/bin/env bun
-import { canonical } from "./canonical";
 import * as ed from "@noble/ed25519";
-import { sealChain } from "./seal";
-import { Turn } from "./schema";
 import { z } from "zod";
+import { canonical } from "./canonical";
+import { Turn } from "./schema";
+import { sealChain } from "./seal";
 import { verify } from "./verify";
 
 const USAGE = `usage: scroll <canon | seal | verify> [flags]
@@ -74,9 +74,7 @@ async function verifyCmd(args: string[]): Promise<number> {
     return 0;
   }
   for (const f of result.failures) {
-    process.stderr.write(
-      `turn ${f.turn}: ${f.reason}${"detail" in f ? ` (${f.detail})` : ""}\n`,
-    );
+    process.stderr.write(`turn ${f.turn}: ${f.reason}${"detail" in f ? ` (${f.detail})` : ""}\n`);
   }
   return 1;
 }
