@@ -4,6 +4,7 @@ import * as ed from "@noble/ed25519";
 import { sealChain } from "./seal";
 import { Turn } from "./schema";
 import { z } from "zod";
+import { verify } from "./verify";
 
 const USAGE = `usage: scroll <canon | seal | verify> [flags]
 
@@ -62,8 +63,21 @@ function hexToBytes(hex: string): Uint8Array {
   return out;
 }
 
-async function verifyCmd(_args: string[]): Promise<number> {
-  process.stderr.write("verify: not implemented yet\n");
+async function verifyCmd(args: string[]): Promise<number> {
+  const pubkeyHex = flag(args, "--pubkey");
+  const text = await Bun.stdin.text();
+  const chain = JSON.parse(text);
+  const pubkey = pubkeyHex ? hexToBytes(pubkeyHex) : undefined;
+  const result = await verify(chain, pubkey);
+  if (result.ok) {
+    process.stdout.write("ok\n");
+    return 0;
+  }
+  for (const f of result.failures) {
+    process.stderr.write(
+      `turn ${f.turn}: ${f.reason}${"detail" in f ? ` (${f.detail})` : ""}\n`,
+    );
+  }
   return 1;
 }
 

@@ -61,3 +61,35 @@ test("scroll seal (no key) emits unsigned SealedTurn[]", async () => {
   expect(parsed[0]).toHaveProperty("hash");
   expect(parsed[0].sig).toBeUndefined();
 });
+
+test("scroll verify exits 0 on a valid sealed chain", async () => {
+  const turn = {
+    version: "scroll/0.1",
+    turn: 0,
+    role: "user",
+    model: { vendor: "anthropic", id: "claude-opus-4-7" },
+    params: { temperature: 0, top_p: 1 },
+    messages: [{ role: "user", content: "hi" }],
+    timestamp_ns: 1_700_000_000_000_000_000,
+  };
+  const sealed = await run(["seal"], JSON.stringify([turn]));
+  const v = await run(["verify"], sealed.stdout);
+  expect(v.code).toBe(0);
+});
+
+test("scroll verify exits 1 and prints failures on a tampered chain", async () => {
+  const turn = {
+    version: "scroll/0.1",
+    turn: 0,
+    role: "user",
+    model: { vendor: "anthropic", id: "claude-opus-4-7" },
+    params: { temperature: 0, top_p: 1 },
+    messages: [{ role: "user", content: "hi" }],
+    timestamp_ns: 1_700_000_000_000_000_000,
+  };
+  const sealed = await run(["seal"], JSON.stringify([turn]));
+  const tampered = sealed.stdout.replace(`"hi"`, `"HI"`);
+  const v = await run(["verify"], tampered);
+  expect(v.code).toBe(1);
+  expect(v.stderr).toContain("BadHash");
+});
