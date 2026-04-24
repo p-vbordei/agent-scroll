@@ -45,3 +45,22 @@ test("sealChain() preserves any prev_hash the caller already set on turn 0", asy
   const [first] = await sealChain([seeded]);
   expect(first?.prev_hash).toBe(`sha256:${"f".repeat(64)}`);
 });
+
+import * as ed from "@noble/ed25519";
+
+test("seal() with sign opts attaches an Ed25519 signature", async () => {
+  const privkey = ed.utils.randomPrivateKey();
+  const pubkey = await ed.getPublicKeyAsync(privkey);
+  const sealed = await seal(turn, { privkey, pubkey });
+  expect(sealed.sig?.alg).toBe("ed25519");
+  expect(sealed.sig?.pubkey).toBe(Buffer.from(pubkey).toString("base64"));
+  // Manually verify the signature against canonical(turn-without-hash-sig)
+  const { canonical } = await import("../src/canonical");
+  const { hash: _h, sig, ...turnOnly } = sealed;
+  const ok = await ed.verifyAsync(
+    Buffer.from(sig?.sig ?? "", "base64"),
+    canonical(turnOnly),
+    pubkey,
+  );
+  expect(ok).toBe(true);
+});
