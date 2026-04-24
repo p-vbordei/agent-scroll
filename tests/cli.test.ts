@@ -25,3 +25,39 @@ test("scroll (no args) prints usage and exits 1", async () => {
   expect(r.code).toBe(1);
   expect(r.stderr).toContain("usage:");
 });
+
+test("scroll seal --key <hex> seals an unsealed Turn[] from stdin", async () => {
+  const turn = {
+    version: "scroll/0.1",
+    turn: 0,
+    role: "user",
+    model: { vendor: "anthropic", id: "claude-opus-4-7" },
+    params: { temperature: 0, top_p: 1 },
+    messages: [{ role: "user", content: "hi" }],
+    timestamp_ns: 1_700_000_000_000_000_000,
+  };
+  const key = "00".repeat(32); // deterministic test key
+  const r = await run(["seal", "--key", key], JSON.stringify([turn]));
+  expect(r.code).toBe(0);
+  const parsed = JSON.parse(r.stdout);
+  expect(parsed).toHaveLength(1);
+  expect(parsed[0]).toHaveProperty("hash");
+  expect(parsed[0]).toHaveProperty("sig.alg", "ed25519");
+});
+
+test("scroll seal (no key) emits unsigned SealedTurn[]", async () => {
+  const turn = {
+    version: "scroll/0.1",
+    turn: 0,
+    role: "user",
+    model: { vendor: "anthropic", id: "claude-opus-4-7" },
+    params: { temperature: 0, top_p: 1 },
+    messages: [{ role: "user", content: "hi" }],
+    timestamp_ns: 1_700_000_000_000_000_000,
+  };
+  const r = await run(["seal"], JSON.stringify([turn]));
+  expect(r.code).toBe(0);
+  const parsed = JSON.parse(r.stdout);
+  expect(parsed[0]).toHaveProperty("hash");
+  expect(parsed[0].sig).toBeUndefined();
+});

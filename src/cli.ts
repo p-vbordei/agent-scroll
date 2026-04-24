@@ -1,5 +1,9 @@
 #!/usr/bin/env bun
 import { canonical } from "./canonical";
+import * as ed from "@noble/ed25519";
+import { sealChain } from "./seal";
+import { Turn } from "./schema";
+import { z } from "zod";
 
 const USAGE = `usage: scroll <canon | seal | verify> [flags]
 
@@ -31,9 +35,31 @@ async function canonCmd(): Promise<number> {
   return 0;
 }
 
-async function sealCmd(_args: string[]): Promise<number> {
-  process.stderr.write("seal: not implemented yet\n");
-  return 1;
+async function sealCmd(args: string[]): Promise<number> {
+  const keyHex = flag(args, "--key");
+  const text = await Bun.stdin.text();
+  const turns = z.array(Turn).parse(JSON.parse(text));
+  let sign: { privkey: Uint8Array; pubkey: Uint8Array } | undefined;
+  if (keyHex) {
+    const privkey = hexToBytes(keyHex);
+    const pubkey = await ed.getPublicKeyAsync(privkey);
+    sign = { privkey, pubkey };
+  }
+  const chain = await sealChain(turns, sign);
+  process.stdout.write(JSON.stringify(chain));
+  return 0;
+}
+
+function flag(args: string[], name: string): string | undefined {
+  const i = args.indexOf(name);
+  return i >= 0 ? args[i + 1] : undefined;
+}
+
+function hexToBytes(hex: string): Uint8Array {
+  if (hex.length % 2 !== 0) throw new Error("hex string must have even length");
+  const out = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < out.length; i++) out[i] = Number.parseInt(hex.slice(i * 2, i * 2 + 2), 16);
+  return out;
 }
 
 async function verifyCmd(_args: string[]): Promise<number> {
