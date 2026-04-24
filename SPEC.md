@@ -48,7 +48,16 @@ Floats SHOULD be avoided; where unavoidable, use IEEE 754 double with JCS number
 
 ### 3.1 Vendor normalization
 
-Vendor-specific message shapes MUST be normalized before hashing. Normative mapping tables live in `spec/vendor-mappings/` and cover at minimum Anthropic Messages, OpenAI Responses, and Google AI generate-content.
+Vendor-specific message shapes MUST be normalized into the schema above before hashing. v0.1 of this specification provides one normative mapping — Anthropic Messages, in `examples/from-anthropic.ts`. OpenAI Responses and Google AI `generate-content` mappings will be added in v0.2. Implementations are free to author additional mappings; doing so does not affect canonical encoding.
+
+### 3.2 Redaction at write time
+
+`args_hash` MUST be SHA-256 of the canonical encoding (per §2) of `args`; `response_hash` is similarly SHA-256 of canonical(`response`). The decision to include the plaintext body is made by the writer at turn-construction time:
+
+- If a body is omitted, only its hash appears in the canonical bytes.
+- If a body is present, both the body and its hash appear in the canonical bytes.
+
+Either choice is valid, but it is permanent: once the turn is sealed, stripping the plaintext body changes the canonical bytes and breaks the chain hash. Late-stage redaction is not supported and is detectable as a chain break — this is intended.
 
 ## 4. Sealing
 
