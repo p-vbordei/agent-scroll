@@ -29,3 +29,9 @@ venv/
 *.log
 tmp/
 .cache/
+
+node_modules/
+dist/
+bun.lock
+*.log
+.DS_Store
