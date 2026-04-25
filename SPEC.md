@@ -1,6 +1,6 @@
-# agent-scroll — v0.1 specification (DRAFT)
+# agent-scroll — v0.1 specification
 
-**Status:** draft, not yet implemented.
+**Status:** 1.0 — released 2026-04-25.
 
 ## Abstract
 
