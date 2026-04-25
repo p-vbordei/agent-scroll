@@ -1,0 +1,48 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "assistant",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "seed": 7,
+      "max_tokens": 500
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Kitchen sink response."
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "ks_call_001",
+        "name": "get_weather",
+        "args_hash": "sha256:6e1e312d537bc71b5410b0599f5a508142149e13174c6ee0d1671658845bc67d",
+        "args": {
+          "city": "Paris"
+        }
+      }
+    ],
+    "tool_results": [
+      {
+        "id": "ks_call_001",
+        "status": "ok",
+        "response_hash": "sha256:a5009944cc0deb7463d9f0040b6ca1f1685dee27016ab51c86adfd07492c3494",
+        "response": "72"
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:c909e9f5bac126a7ab77f2977c321d481e8116aff872e958071f4dfc5ac278fa",
+    "sig": {
+      "alg": "ed25519",
+      "pubkey": "zswVB9wd3XKVlRwpCIjwla25BE0bc9aW5t8GXWg71Pw=",
+      "sig": "4XQFXxvXJTvE+suAyR76giIw8VmTtHbXDimf3rW8eW3Xkrn32kta4Bn8AvF+20JrfRkHB3RJiiEkv/kvyXc4Ag=="
+    }
+  }
+]

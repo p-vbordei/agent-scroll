@@ -1,0 +1,28 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "user",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Signed message."
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:4238a1511a54904a6b47c6a637d24ac29bee783b0b45fa59264cce430f8cf48d",
+    "sig": {
+      "alg": "ed25519",
+      "pubkey": "zswVB9wd3XKVlRwpCIjwla25BE0bc9aW5t8GXWg71Pw=",
+      "sig": "Ki0VmYNvRytXNQp4ryEwjiErS9jvs40Z4AnJ3z7MYCsKf3wbPSl1+CWVTPOZxeyfs7nHaX8EbRlSJY6XAq1qAg=="
+    }
+  }
+]

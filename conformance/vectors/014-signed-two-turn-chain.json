@@ -1,0 +1,55 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "user",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "First signed turn."
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:706385c857b335d17473f596bcffe369e9c33debd7b2cc0d9798043f4969a5f7",
+    "sig": {
+      "alg": "ed25519",
+      "pubkey": "zswVB9wd3XKVlRwpCIjwla25BE0bc9aW5t8GXWg71Pw=",
+      "sig": "mZhnV+PTJ7MHi2IQ2+ZzTSfzGqt7JOcWXNthYmPnB7dpWKmEZK3rgI5qneMUB9xOzkP9e/uvgnevLpZdcVHuDw=="
+    }
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 1,
+    "role": "assistant",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Second signed turn."
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "prev_hash": "sha256:706385c857b335d17473f596bcffe369e9c33debd7b2cc0d9798043f4969a5f7",
+    "hash": "sha256:e345436a6016766adcb9f4ce8dc12cd5cb2a3d0ea29f95adb98439159b419140",
+    "sig": {
+      "alg": "ed25519",
+      "pubkey": "zswVB9wd3XKVlRwpCIjwla25BE0bc9aW5t8GXWg71Pw=",
+      "sig": "oXL4+Ckxfeem1RlmMYRZmCC5ugFfyZDkCegKMV76hPmCMnoT7OKrY9cmOqKqdHfySqf0ewsw50CDBqBIzk4tDQ=="
+    }
+  }
+]
