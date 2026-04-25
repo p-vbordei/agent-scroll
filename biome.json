@@ -15,7 +15,7 @@
     },
     {
       "include": ["examples/**"],
-      "formatter": { "lineWidth": 120 }
+      "linter": { "rules": { "style": { "noNonNullAssertion": "off" } } }
     }
   ]
 }
