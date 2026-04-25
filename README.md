@@ -10,7 +10,26 @@ Purpose: replay, audit, legal evidence, dispute resolution, reproducibility atte
 
 ## Status
 
-**0.0 — design phase.** Draft spec in [SPEC.md](./SPEC.md). No code yet.
+**v0.1.0 — released 2026-04-25.** Spec: [SPEC.md](./SPEC.md). Reference implementation in TypeScript + Bun.
+
+## Quickstart
+
+```bash
+bun install
+bun test
+bun examples/demo.ts
+bun conformance/runner.ts
+```
+
+Four commands, no Docker, no services. The demo creates a keypair, seals a 2-turn agent conversation, prints the canonical bytes (which any other conforming implementation would produce identically), then mutates one byte and shows `verify` catching the tamper.
+
+The primary public API is four functions:
+
+```typescript
+import { seal, sealChain, verify, canonical } from 'agent-scroll';
+```
+
+Conformance vectors (C1–C4 from SPEC §7) live in [conformance/](./conformance/). Run them with `bun conformance/runner.ts` — other implementations can validate against the same vectors.
 
 ## The gap
 
