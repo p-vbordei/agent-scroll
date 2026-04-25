@@ -1,0 +1,295 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "user",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [{ "role": "user", "content": "Hello, can you help me plan a trip to Japan?" }],
+    "timestamp_ns": 1700000000000000000
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 1,
+    "role": "assistant",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0.7, "top_p": 1 },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "I'd love to help you plan a trip to Japan! When are you thinking of going, and how long do you have?"
+      }
+    ],
+    "timestamp_ns": 1700000000000000001
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 2,
+    "role": "user",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [{ "role": "user", "content": "Two weeks in April. I love food and temples." }],
+    "timestamp_ns": 1700000000000000002
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 3,
+    "role": "assistant",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0.7, "top_p": 1, "max_tokens": 2048 },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "April is perfect for cherry blossoms. I recommend starting in Tokyo, then Kyoto for temples, and ending in Osaka for the food scene."
+      }
+    ],
+    "timestamp_ns": 1700000000000000003
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 4,
+    "role": "system",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful travel planning assistant specializing in Japanese culture and cuisine."
+      }
+    ],
+    "timestamp_ns": 1700000000000000004
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 5,
+    "role": "tool",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [{ "role": "tool", "content": "Flight search complete." }],
+    "tool_calls": [
+      {
+        "id": "call_abc123",
+        "name": "search_flights",
+        "args_hash": "sha256:a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+      }
+    ],
+    "timestamp_ns": 1700000000000000005
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 6,
+    "role": "tool",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [{ "role": "tool", "content": "Hotel search results returned." }],
+    "tool_results": [
+      {
+        "id": "call_abc123",
+        "status": "ok",
+        "response_hash": "sha256:b3a8e0e1f9ab1bdb4d423b6b4fa13b3b7b3a3e3c3d3e3f303132333435363738"
+      }
+    ],
+    "timestamp_ns": 1700000000000000006
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 7,
+    "role": "tool",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [{ "role": "tool", "content": "Tool call with both args and args_hash present." }],
+    "tool_calls": [
+      {
+        "id": "call_def456",
+        "name": "get_weather",
+        "args_hash": "sha256:c3ab8ff13720e8ad9047dd39466b3c8974e592c2fa383d4a3960714caef0c4f2",
+        "args": { "city": "Tokyo", "month": "April" }
+      }
+    ],
+    "timestamp_ns": 1700000000000000007
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 8,
+    "role": "tool",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [
+      { "role": "tool", "content": "Tool result with both response and response_hash present." }
+    ],
+    "tool_results": [
+      {
+        "id": "call_def456",
+        "status": "ok",
+        "response_hash": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+        "response": { "temp_celsius": 18, "condition": "cherry_blossoms", "humidity": 62 }
+      }
+    ],
+    "timestamp_ns": 1700000000000000008
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 9,
+    "role": "assistant",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5", "fingerprint": "fp_a1b2c3d4e5" },
+    "params": { "temperature": 0.5, "top_p": 0.9, "seed": 42, "max_tokens": 1024 },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Based on the weather data, April in Tokyo averages 18°C with cherry blossoms in full bloom. Perfect timing!"
+      }
+    ],
+    "timestamp_ns": 1700000000000000009
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 10,
+    "role": "user",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [{ "role": "user", "content": "What temples in Kyoto should I visit?" }],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000001",
+    "timestamp_ns": 1700000000000000010
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 11,
+    "role": "assistant",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0.7, "top_p": 1 },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Top temples in Kyoto: Fushimi Inari (thousand torii gates), Kinkaku-ji (golden pavilion), and Ryoan-ji (zen rock garden)."
+      }
+    ],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000002",
+    "timestamp_ns": 1700000000000000011
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 12,
+    "role": "user",
+    "model": { "vendor": "demo", "id": "human-input" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [{ "role": "user", "content": "What about food? Any must-eat dishes?" }],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000003",
+    "timestamp_ns": 1700000000000000012
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 13,
+    "role": "assistant",
+    "model": { "vendor": "anthropic", "id": "claude-opus-4-7" },
+    "params": { "temperature": 0.8, "top_p": 0.95, "max_tokens": 512 },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Must-eat: ramen in Tokyo (try Ichiran), kaiseki in Kyoto, takoyaki in Osaka, and fresh sushi at Tsukiji outer market."
+      }
+    ],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000004",
+    "timestamp_ns": 1700000000000000013
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 14,
+    "role": "tool",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [{ "role": "tool", "content": "Restaurant reservation attempted." }],
+    "tool_calls": [
+      {
+        "id": "call_ghi789",
+        "name": "book_restaurant",
+        "args_hash": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6"
+      }
+    ],
+    "tool_results": [
+      {
+        "id": "call_ghi789",
+        "status": "error",
+        "response_hash": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7"
+      }
+    ],
+    "timestamp_ns": 1700000000000000014
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 15,
+    "role": "assistant",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5" },
+    "params": { "temperature": 0.7, "top_p": 1 },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "The reservation failed. I recommend booking Ichiran online through their website directly — they have English support."
+      }
+    ],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000005",
+    "timestamp_ns": 1700000000000000015
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 16,
+    "role": "user",
+    "model": { "vendor": "demo", "id": "human-input" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          { "type": "text", "text": "Here's a photo of a temple I found." },
+          { "type": "image_url", "url": "https://example.com/temple.jpg" }
+        ]
+      }
+    ],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000006",
+    "timestamp_ns": 1700000000000000016
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 17,
+    "role": "assistant",
+    "model": { "vendor": "anthropic", "id": "claude-sonnet-4-5", "fingerprint": "fp_vision_v2" },
+    "params": { "temperature": 0.3, "top_p": 1, "seed": 99, "max_tokens": 256 },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "That looks like Senso-ji in Asakusa, Tokyo — one of the oldest and most visited temples in Japan. Note the iconic Kaminarimon gate."
+      }
+    ],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000007",
+    "timestamp_ns": 1700000000000000017
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 18,
+    "role": "user",
+    "model": { "vendor": "demo", "id": "human-input" },
+    "params": { "temperature": 0, "top_p": 1 },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Great! One last thing — what's the best way to get around Japan?"
+      }
+    ],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000008",
+    "timestamp_ns": 1700000000000000018
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 19,
+    "role": "assistant",
+    "model": { "vendor": "anthropic", "id": "claude-opus-4-7" },
+    "params": { "temperature": 0.7, "top_p": 1, "max_tokens": 1024 },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Get a JR Pass before you leave — it covers bullet trains (shinkansen) between cities. Within cities, use IC cards (Suica or Pasmo) for metro and buses. Taxis are expensive; avoid except for late nights."
+      }
+    ],
+    "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000009",
+    "timestamp_ns": 1700000000000000019
+  }
+]
