@@ -1,11 +1,10 @@
 import * as ed from "@noble/ed25519";
-import { canonical } from "../src/canonical.ts";
-import { deserialize, serialize } from "../src/index.ts";
-import type { Turn } from "../src/schema.ts";
-import { sealChain } from "../src/seal.ts";
+import { canonical } from "../src/canonical";
+import { deserialize, serialize } from "../src/index";
+import type { Turn } from "../src/schema";
+import { sealChain } from "../src/seal";
 import turns from "./vectors/c1-turns.json" with { type: "json" };
 
-// Compare via canonical encoding (JCS sorts keys deterministically)
 function canonEqual(a: unknown, b: unknown): boolean {
   const aBytes = canonical(a);
   const bBytes = canonical(b);
@@ -22,7 +21,6 @@ export default async function c3(): Promise<void> {
 
   const turnsArr = turns as Turn[];
 
-  // Test Turn round-trip for each of the 20 turns
   for (const t of turnsArr) {
     const bytes = serialize(t);
     const recovered = deserialize(bytes);
@@ -31,7 +29,6 @@ export default async function c3(): Promise<void> {
     }
   }
 
-  // Test SealedTurn (unsigned) round-trip
   const unsignedSealed = await sealChain(turnsArr.slice(0, 5));
   for (const s of unsignedSealed) {
     const bytes = serialize(s);
@@ -41,7 +38,6 @@ export default async function c3(): Promise<void> {
     }
   }
 
-  // Test SealedTurn (signed) round-trip
   const signedSealed = await sealChain(turnsArr.slice(0, 5), { privkey, pubkey });
   for (const s of signedSealed) {
     const bytes = serialize(s);

@@ -1,4 +1,4 @@
-import { canonical } from "../src/canonical.ts";
+import { canonical } from "../src/canonical";
 import expectedHex from "./vectors/c1-hex.json" with { type: "json" };
 import turns from "./vectors/c1-turns.json" with { type: "json" };
 

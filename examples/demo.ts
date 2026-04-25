@@ -33,7 +33,6 @@ console.log("canonical turn 0:", new TextDecoder().decode(canonical(sealed[0])))
 const ok = await verify(sealed, pubkey);
 console.log("verify ok:", ok.ok);
 
-// Tamper turn 1's content
 const tampered = JSON.parse(JSON.stringify(sealed));
 tampered[1].messages[0].content = "NOT what was said";
 const bad = await verify(tampered, pubkey);
