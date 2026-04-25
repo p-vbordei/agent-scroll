@@ -1,0 +1,35 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "assistant",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "xigned with redacted tool call."
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "call_signed_001",
+        "name": "get_weather",
+        "args_hash": "sha256:2f3329991a3c65d4a4aa131185982f5cfa0d67aad1b45050c754d1fb38b6349e"
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:bb14919e42947ba119099c1a7b24e0fe4b856b59e5877ef8d4f93118a57bbd4c",
+    "sig": {
+      "alg": "ed25519",
+      "pubkey": "zswVB9wd3XKVlRwpCIjwla25BE0bc9aW5t8GXWg71Pw=",
+      "sig": "Oh3O6ogrPUdP+wZESraET7DYj7z6aQbB72X5fGD9jWffbUCkDO5nJ3hOMi+8w0TBhW8O2S4mO2Y08UuaeAo4Bw=="
+    }
+  }
+]

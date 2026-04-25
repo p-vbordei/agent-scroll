@@ -1,0 +1,24 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "assistant",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1,
+      "seed": 42
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "xeeded response."
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:93c343702c4d25677e7e2710b4fde9d452f26b5fa019c3f764d372888517568e"
+  }
+]

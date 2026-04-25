@@ -1,0 +1,23 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "user",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "xello, world!"
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:00cd1cb5224032a341833328910756518ba768aee4c3e420d83f8213b6982812"
+  }
+]

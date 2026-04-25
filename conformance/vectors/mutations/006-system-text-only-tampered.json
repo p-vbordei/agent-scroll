@@ -1,0 +1,23 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "system",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "xou are a helpful assistant."
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:bdd193aaf107123443ba120d6cad0788ab694e958a1ba9e0b875b8704683493c"
+  }
+]

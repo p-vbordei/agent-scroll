@@ -1,0 +1,33 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "assistant",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "xalling weather API."
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "call_001",
+        "name": "get_weather",
+        "args_hash": "sha256:6e1e312d537bc71b5410b0599f5a508142149e13174c6ee0d1671658845bc67d",
+        "args": {
+          "city": "Paris"
+        }
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:2caa86f72af27aa83cfb331fc3b36bc398a96e349fe8819312a00451d6ec398d"
+  }
+]
