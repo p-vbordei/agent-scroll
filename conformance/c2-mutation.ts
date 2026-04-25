@@ -1,4 +1,3 @@
-// biome-ignore-all lint/style/noNonNullAssertion: test fixture — indices are known to exist
 import * as ed from "@noble/ed25519";
 import { canonical } from "../src/canonical";
 import type { Turn } from "../src/schema";

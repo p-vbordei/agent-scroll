@@ -1,4 +1,3 @@
-// biome-ignore-all lint/style/noNonNullAssertion: test fixture — indices and sealed-turn fields are known to exist
 import * as ed from "@noble/ed25519";
 import type { Turn } from "../src/schema";
 import { sealChain } from "../src/seal";
