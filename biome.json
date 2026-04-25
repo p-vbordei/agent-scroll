@@ -12,6 +12,10 @@
           "performance": { "noDelete": "off" }
         }
       }
+    },
+    {
+      "include": ["examples/**"],
+      "formatter": { "lineWidth": 120 }
     }
   ]
 }
