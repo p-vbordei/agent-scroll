@@ -3,7 +3,7 @@ import { canonical } from "../src/canonical";
 import { deserialize, serialize } from "../src/index";
 import type { Turn } from "../src/schema";
 import { sealChain } from "../src/seal";
-import turns from "./vectors/c1-turns.json" with { type: "json" };
+import turns from "./fixtures/c1-turns.json" with { type: "json" };
 
 function canonEqual(a: unknown, b: unknown): boolean {
   const aBytes = canonical(a);
