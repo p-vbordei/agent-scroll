@@ -1,0 +1,30 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "assistant",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "xalling with redacted args."
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "call_002",
+        "name": "get_weather",
+        "args_hash": "sha256:2f3329991a3c65d4a4aa131185982f5cfa0d67aad1b45050c754d1fb38b6349e"
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:68949ad3159fa0815f13577d07a620579e596511d44196c8327f79e924750eae"
+  }
+]

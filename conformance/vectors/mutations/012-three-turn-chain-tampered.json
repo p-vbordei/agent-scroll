@@ -1,0 +1,67 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "user",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "xhat is the capital of France?"
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:00840bce7054f4773054ce1db1b87bbd65b9850f2f0b3190fcd5dc569860ac5a"
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 1,
+    "role": "assistant",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "The capital of France is Paris."
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "prev_hash": "sha256:00840bce7054f4773054ce1db1b87bbd65b9850f2f0b3190fcd5dc569860ac5a",
+    "hash": "sha256:c678e77b5eb0a0ee1e3c7b7710a65f9cbd196c5121d47fc9da37b3de306a242e"
+  },
+  {
+    "version": "scroll/0.1",
+    "turn": 2,
+    "role": "user",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Thank you!"
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "prev_hash": "sha256:c678e77b5eb0a0ee1e3c7b7710a65f9cbd196c5121d47fc9da37b3de306a242e",
+    "hash": "sha256:65a2a30b320becb4b5702895e98377cb791f13af40209e2ce7dec3fcdf3824d3"
+  }
+]

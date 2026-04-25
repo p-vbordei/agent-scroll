@@ -1,0 +1,37 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "tool",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "tool",
+        "content": "xixed tool results."
+      }
+    ],
+    "tool_results": [
+      {
+        "id": "call_a",
+        "status": "ok",
+        "response_hash": "sha256:8334c554c7276f59674810b92fff5197cd46bf6ccbe872742f9b04ca31dfe3d1",
+        "response": "42"
+      },
+      {
+        "id": "call_b",
+        "status": "error",
+        "response_hash": "sha256:ad1df5b7ba73377700402dd3c6147ade4712a3046de9a2834a00031a2ecac8c6",
+        "response": "error: not found"
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:6b5df97562c185e5b98a70173256ade71438330f813e55ce3f549c7d0c816868"
+  }
+]

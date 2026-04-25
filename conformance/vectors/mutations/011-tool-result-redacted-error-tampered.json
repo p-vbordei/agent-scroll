@@ -1,0 +1,30 @@
+[
+  {
+    "version": "scroll/0.1",
+    "turn": 0,
+    "role": "tool",
+    "model": {
+      "vendor": "anthropic",
+      "id": "claude-opus-4-7"
+    },
+    "params": {
+      "temperature": 0,
+      "top_p": 1
+    },
+    "messages": [
+      {
+        "role": "tool",
+        "content": "xool failed."
+      }
+    ],
+    "tool_results": [
+      {
+        "id": "call_003",
+        "status": "error",
+        "response_hash": "sha256:a882139b0d8a0a1dbd25dbcf83924f39eb7f6e67d1dacaa116346da8d699af4b"
+      }
+    ],
+    "timestamp_ns": 1700000000000000000,
+    "hash": "sha256:e988fbc83180eb164c81b7fe31668230a2af3dfb262402d5891cfb8ae7e1944d"
+  }
+]
