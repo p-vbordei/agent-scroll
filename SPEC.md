@@ -72,6 +72,8 @@ A `SealedTurn` is a turn plus:
 
 Signing is optional but RECOMMENDED for turns authored by a verifiable party (e.g. an agent holding an `agent-id` DID).
 
+The `sig.sig` value MUST be the Ed25519 signature over the canonical encoding (per §2) of the turn with `hash` and `sig` fields removed — i.e. over exactly the same bytes used to compute `hash`. Verifiers MUST recompute these bytes from the parsed turn rather than trusting any cached canonical form.
+
 ## 5. API (reference)
 
 ```
