@@ -1,6 +1,6 @@
 import { canonical } from "../src/canonical";
-import expectedHex from "./vectors/c1-hex.json" with { type: "json" };
-import turns from "./vectors/c1-turns.json" with { type: "json" };
+import expectedHex from "./fixtures/c1-hex.json" with { type: "json" };
+import turns from "./fixtures/c1-turns.json" with { type: "json" };
 
 export default async function c1(): Promise<void> {
   const hexMap = expectedHex as Record<string, string>;
