@@ -1,6 +1,6 @@
 import * as ed from "@noble/ed25519";
-import { canonical, sealChain, verify } from "../src/index.ts";
-import type { Turn } from "../src/schema.ts";
+import { canonical, sealChain, verify } from "../src/index";
+import type { Turn } from "../src/schema";
 
 const privkey = ed.utils.randomPrivateKey();
 const pubkey = await ed.getPublicKeyAsync(privkey);
