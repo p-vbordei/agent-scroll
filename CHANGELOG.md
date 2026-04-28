@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.1 — 2026-04-28
+
+Metadata-only release: npm package renamed from `agent-scroll` to `@p-vbordei/agent-scroll` now that the `p-vbordei` org exists on npm. No code changes. Install: `npm i @p-vbordei/agent-scroll`. The unscoped name was never published.
+
 ## v0.1.0 — 2026-04-25
 
 Initial release. Reference TypeScript + Bun implementation of the agent-scroll v1.0 specification.
