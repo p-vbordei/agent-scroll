@@ -1,6 +1,9 @@
 {
-  "name": "agent-scroll",
-  "version": "0.1.0",
+  "name": "@p-vbordei/agent-scroll",
+  "version": "0.1.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "description": "Canonical byte-deterministic transcript format for AI-agent conversations",
   "license": "Apache-2.0",
